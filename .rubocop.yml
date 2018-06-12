@@ -1,0 +1,24 @@
+# Excludes
+AllCops:
+  Excludes:
+    - '*.gemspec'
+    - '*helpers/wait_helper.rb'
+
+# Rules
+Metrics/LineLength:
+  Max: 150
+
+MethodLength:
+  Max: 50
+
+Metrics/AbcSize:
+   Enabled: false
+
+BlockLength:
+  Max: 70
+
+Metrics/PerceivedComplexity:
+  Max: 8
+
+Metrics/CyclomaticComplexity:
+  Max: 8
