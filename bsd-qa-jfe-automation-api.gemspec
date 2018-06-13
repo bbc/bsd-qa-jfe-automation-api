@@ -15,9 +15,9 @@ Gem::Specification.new do |spec|
     f.match(%r{^(test|spec|features)/})
   end
 
-  spec.require_paths = ['lib']
+  spec.require_paths = ["lib"]
 
-  spec.add_dependency 'httparty', '0.14.0'
+  spec.add_dependency "httparty", '0.14.0'
   spec.add_dependency 'hashie', '3.1'
   spec.add_dependency 'pry', '0.10.4'
 

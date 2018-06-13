@@ -1,40 +1,38 @@
-begin
-  module BsdQaJfeAutomationApi
-    # Base class for bsd service models
-    class Service
-      include HTTParty
-      attr_accessor :code, :headers, :body
-      default_timeout 20
+module BsdQaJfeAutomationApi
+  # Base class for bsd service models
+  class Service
+    include HTTParty
+    attr_accessor :code, :headers, :body
+    default_timeout 20
 
-      def url(path)
-        if self.class.base_uri
-          "#{self.class.base_uri}/#{path}"
-        else
-          "#{service_url}/#{path}"
-        end
+    def url(path)
+      if self.class.base_uri
+        "#{self.class.base_uri}/#{path}"
+      else
+        "#{service_url}/#{path}"
       end
+    end
 
-      protected
+    protected
 
-      def safe_get(path, headers: {}, query: {})
-        rescue_connection_errors(path) do
-          self.class.get(path, headers: headers, query: query, cookies: { JSESSIONID: j_session_id })
-        end
+    def safe_get(path, headers: {}, query: {})
+      rescue_connection_errors(path) do
+        self.class.get(path, headers: headers, query: query, cookies: { JSESSIONID: j_session_id })
       end
+    end
 
-      def safe_post(path, headers: {}, query: {}, payload: {})
-        rescue_connection_errors(path) do
-          self.class.post(path, headers: headers, query: query, body: payload, cookies: { JSESSIONID: j_session_id })
-        end
+    def safe_post(path, headers: {}, query: {}, payload: {})
+      rescue_connection_errors(path) do
+        self.class.post(path, headers: headers, query: query, body: payload, cookies: { JSESSIONID: j_session_id })
       end
+    end
 
-      private
+    private
 
-      def rescue_connection_errors(url)
-        yield
-      rescue Net::OpenTimeout, SocketError => e
-        raise "Failed to connect to #{url}: #{e}"
-      end
+    def rescue_connection_errors(url)
+      yield
+    rescue Net::OpenTimeout, SocketError => e
+      raise "Failed to connect to #{url}: #{e}"
     end
   end
 end

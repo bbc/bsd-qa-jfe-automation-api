@@ -1,6 +1,5 @@
-require_relative '../../helpers/authentication'
-require 'bsd_qa_jfe_automation_api/response/response_json'
-
+require_relative 'service'
+require_relative '../response/response_json'
 module BsdQaJfeAutomationApi
   # class for modelling /files endpoint
   class Files < Service

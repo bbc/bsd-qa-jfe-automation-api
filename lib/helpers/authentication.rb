@@ -1,7 +1,3 @@
-require_relative '../bsd_qa_jfe_automation_api/services/service'
-require 'httparty'
-require 'pry'
-
 def j_session_id
   raise 'USERNAME and PASSWORD params must be set !!!' unless ENV['USERNAME'] && ENV['PASSWORD']
   options = { query: { username: ENV['USERNAME'], password: ENV['PASSWORD'] } }
