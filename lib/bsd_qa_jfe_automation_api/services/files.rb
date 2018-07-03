@@ -14,8 +14,8 @@ module BsdQaJfeAutomationApi
       ResponseJson.new(safe_get(files_url))
     end
 
-    def file_exists?(file_name: nil)
-      file_names.map(&:name).include?(file_name)
+    def file_exists?(file_name: nil, name_type: nil)
+      name_type.eql?('src') ? file_names.map(&:name).include?(file_name) : file_names.map(&:niceName).include?(file_name)
     end
 
     def nice_name_exists?(file_name: nil)

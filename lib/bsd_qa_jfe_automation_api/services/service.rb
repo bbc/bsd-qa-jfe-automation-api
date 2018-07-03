@@ -15,15 +15,15 @@ module BsdQaJfeAutomationApi
 
     protected
 
-    def safe_get(path, headers: {}, query: {})
+    def safe_get(path, query = {})
       rescue_connection_errors(path) do
-        self.class.get(path, headers: headers, query: query, cookies: { JSESSIONID: j_session_id })
+        self.class.get(path, query: query, cookies: { JSESSIONID: j_session_id })
       end
     end
 
-    def safe_post(path, headers: {}, query: {}, payload: {})
+    def safe_post(path, query = {}, payload = {})
       rescue_connection_errors(path) do
-        self.class.post(path, headers: headers, query: query, body: payload, cookies: { JSESSIONID: j_session_id })
+        self.class.post(path, query: query, body: payload, cookies: { JSESSIONID: j_session_id })
       end
     end
 

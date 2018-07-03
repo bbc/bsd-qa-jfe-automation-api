@@ -11,6 +11,10 @@ module BsdQaJfeAutomationApi
       @service_url = set_service_url(self)
     end
 
+    def jobs
+      ResponseJson.new(safe_get(jobs_url))
+    end
+
     # parsing
 
     # urls

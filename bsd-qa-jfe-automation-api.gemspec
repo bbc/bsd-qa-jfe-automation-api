@@ -20,6 +20,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency "httparty", '0.14.0'
   spec.add_dependency 'hashie', '3.1'
   spec.add_dependency 'pry', '0.10.4'
+  spec.add_dependency 'net-scp', '1.2.1'
+  spec.add_dependency 'net-ssh', '4.2.0'
 
   spec.add_development_dependency 'bundler', '1.16.1'
   spec.add_development_dependency 'rake', '10.0'

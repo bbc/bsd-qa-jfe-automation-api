@@ -11,6 +11,10 @@ module BsdQaJfeAutomationApi
       @service_url = set_service_url(self)
     end
 
+    def history(query: nil) # src filename
+      ResponseJson2.new(safe_get(ingest_history_url, query))
+    end
+
     # parsing
 
     # urls

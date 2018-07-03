@@ -11,6 +11,10 @@ module BsdQaJfeAutomationApi
       @service_url = set_service_url(self)
     end
 
+    def metadata(query: nil)
+      ResponseJson.new(safe_get(metadata_url, query))
+    end
+
     # parsing
 
     # urls
